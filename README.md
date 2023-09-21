@@ -72,7 +72,7 @@ In this section, we'll discuss the thought process behind the implementation of 
 
 1. Reading Messages from the Queue: We use the boto3 library to interact with AWS SQS. We configure it to use the LocalStack endpoint for local development.
 
-2. Data Structure: JSON data is received from the SQS Queue. We parse it into a Python dictionary for processing.
+2. Data Structure: JSON data is received from the SQS Queue. We parse it into a Python list for processing.
 
 3. Masking PII Data: To protect personal identifiable information (PII), we use a hashing function (SHA-256) to mask the device_id and ip fields. This ensures that duplicate values can still be identified, but the original data remains confidential.
 
