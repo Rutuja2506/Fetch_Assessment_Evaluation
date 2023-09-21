@@ -158,6 +158,15 @@ PII data, specifically device_id and ip, is masked using SHA-256 hashing with sa
 - The application stores data in a PostgreSQL database using the provided table schema for 'user_logins'.
 - The 'app_version' column in the database table is altered to use the VARCHAR data type to accommodate non-integer values.
 
+### Testing :
+Data analyst can use following query tro identify duplicate values of masked IP
+```
+SELECT masked_ip, COUNT(*)
+FROM user_logins
+GROUP BY masked_ip
+HAVING COUNT(*) > 1;
+```
+
 ## Next Steps
 
 If I had more time to work on this project, I would have considered implementing following enhancements and make it production-ready:
